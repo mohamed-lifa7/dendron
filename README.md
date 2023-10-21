@@ -70,7 +70,7 @@ npm run dev
 
 ## Prerequisites
 
-Before you begin, make sure you have the [Node.js version 18._._](https://nodejs.org/) installed on your machine.
+Before you begin, make sure you have the [Node.js version 18.x.x](https://nodejs.org/) installed on your machine.
 
 ## Contributing
 

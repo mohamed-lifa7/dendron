@@ -30,9 +30,9 @@ export const Hero = () => {
             retrieve, and share your notes effortlessly.
           </p>
           {isLoading && (
-            <div className="flex w-full items-center justify-center">
+            <Button variant="ghost" size="icon" disabled>
               <Spinner size="lg" />
-            </div>
+            </Button>
           )}
           {isAuthenticated && !isLoading && (
             <Button asChild className="my-4">
