@@ -49,6 +49,7 @@ export const Navbar = () => {
             <UserButton afterSignOutUrl="/" />
           </>
         )}
+        {isAuthenticated && <UserButton afterSignOutUrl="/" />}
         <ModeToggle />
       </div>
     </div>

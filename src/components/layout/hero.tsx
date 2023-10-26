@@ -2,16 +2,15 @@
 
 import { useConvexAuth } from "convex/react";
 import { ArrowRight } from "lucide-react";
-import { SignInButton } from "@clerk/clerk-react";
+import { SignInButton, useUser, UserButton } from "@clerk/clerk-react";
 import Link from "next/link";
-
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { Icons } from "../icons";
 
 export const Hero = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
-
+  const { user } = useUser();
   return (
     <div className="relative">
       <div className="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20">
@@ -25,9 +24,15 @@ export const Hero = () => {
               <div className="-mt-3 h-3 w-full bg-purple-400" />
             </span>
           </h2>
-          <p className="mb-6 text-base  tracking-wide text-muted-foreground md:text-lg">
+          <p className="mb-6 text-base tracking-wide text-muted-foreground md:text-lg">
             Dendron is your all-in-one knowledge management platform. Store,
             retrieve, and share your notes effortlessly.
+            <span>Logged in as {user?.fullName}</span>{" "}
+            <span>Is it loading {isLoading ? "true" : "false"}</span>{" "}
+            <span>
+              Is user authenticated {isAuthenticated ? "true" : "false"}
+            </span>{" "}
+            <UserButton afterSignOutUrl="/" />
           </p>
           {isLoading && (
             <Button variant="ghost" size="icon" disabled>

@@ -10,6 +10,8 @@ export const env = createEnv({
     NODE_ENV: z.enum(["development", "test", "production"]),
     CONVEX_DEPLOYMENT:z.string().min(1),
     CLERK_SECRET_KEY:z.string().min(1),
+    EDGE_STORE_ACCESS_KEY:z.string().min(1),
+    EDGE_STORE_SECRET_KEY:z.string().min(1),
   },
 
   /**
@@ -32,6 +34,8 @@ export const env = createEnv({
     NEXT_PUBLIC_CONVEX_URL: process.env.NEXT_PUBLIC_CONVEX_URL,
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
     CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
+    EDGE_STORE_ACCESS_KEY:process.env.EDGE_STORE_ACCESS_KEY,
+    EDGE_STORE_SECRET_KEY:process.env.EDGE_STORE_SECRET_KEY,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.
