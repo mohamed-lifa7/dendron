@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/site";
 import { ThemeProvider } from "@/context/theme-provider";
 import ConvexClientProvider from "@/context/convex-client-provider";
 import { Toaster } from "sonner";
+import { EdgeStoreProvider } from "@/lib/edgestore";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -23,16 +24,18 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`font-sans ${inter.variable}`}>
         <ConvexClientProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-            storageKey="dendron-theme"
-          >
-            <Toaster position="bottom-center" />
-            {children}
-          </ThemeProvider>
+          <EdgeStoreProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+              storageKey="dendron-theme"
+            >
+              <Toaster position="bottom-center" />
+              {children}
+            </ThemeProvider>
+          </EdgeStoreProvider>
         </ConvexClientProvider>
       </body>
     </html>

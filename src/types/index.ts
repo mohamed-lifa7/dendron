@@ -1,3 +1,6 @@
+import type { Id } from "@/convex/_generated/dataModel";
+import type { LucideIcon } from "lucide-react";
+
 type SearchStore = {
   isOpen: boolean;
   onOpen: () => void;
@@ -16,4 +19,17 @@ type SettingsStore = {
   onOpen: () => void;
   onClose: () => void;
 };
-export type { SearchStore, CoverImageStore, SettingsStore };
+
+interface ItemProps {
+  id?: Id<"documents">;
+  documentIcon?: string;
+  active?: boolean;
+  expanded?: boolean;
+  isSearch?: boolean;
+  level?: number;
+  onExpand?: () => void;
+  label: string;
+  onClick?: () => void;
+  icon: LucideIcon;
+}
+export type { SearchStore, CoverImageStore, SettingsStore, ItemProps };

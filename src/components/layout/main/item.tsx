@@ -1,13 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 "use client";
 
 import {
   ChevronDown,
   ChevronRight,
-  type LucideIcon,
   MoreHorizontal,
   Plus,
   Trash,
@@ -17,7 +12,6 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { useUser } from "@clerk/clerk-react";
 
-import type { Id } from "@/convex/_generated/dataModel";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
 import { api } from "@/convex/_generated/api";
@@ -28,19 +22,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-
-interface ItemProps {
-  id?: Id<"documents">;
-  documentIcon?: string;
-  active?: boolean;
-  expanded?: boolean;
-  isSearch?: boolean;
-  level?: number;
-  onExpand?: () => void;
-  label: string;
-  onClick?: () => void;
-  icon: LucideIcon;
-}
+import type { ItemProps } from "@/types";
 
 export const Item = ({
   id,

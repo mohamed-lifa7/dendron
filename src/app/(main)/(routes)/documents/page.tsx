@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 "use client";
 
 import Image from "next/image";
@@ -44,12 +43,13 @@ const DocumentsPage = () => {
         alt="Empty"
         className="hidden dark:block"
       />
-      <h2 className="text-lg font-medium">
-        Welcome to {user?.firstName}&apos;s Jotion
-      </h2>
+      <h2 className="text-lg font-medium">Welcome {user?.firstName}!</h2>
+      <p className="mt-2 text-muted-foreground">
+        Your notes will display here. Let&apos;s create your first note!
+      </p>
       <Button onClick={onCreate}>
         <PlusCircle className="mr-2 h-4 w-4" />
-        Create a note
+        Create new note
       </Button>
     </div>
   );
