@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const siteConfig: Metadata = {
-  metadataBase: new URL("https://dendron-notes.vercel.app"),
+  metadataBase: new URL("https://dendron-swart.vercel.app"),
 
   title: {
     default: "Dendron - Note Taking App",
@@ -15,7 +15,7 @@ export const siteConfig: Metadata = {
     title: "Dendron - Note Taking Web Application",
     description:
       "Dendron is a feature-rich note taking web app built with Next.js. Organize notes, sync across devices, Markdown support, fast search, and more.",
-    url: new URL("https://dendron-notes.vercel.app"),
+    url: new URL("https://dendron-swart.vercel.app"),
     siteName: "Dendron",
     locale: "en-US",
     type: "website",
