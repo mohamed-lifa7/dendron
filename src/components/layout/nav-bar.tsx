@@ -19,12 +19,12 @@ export const Navbar = () => {
   return (
     <div
       className={cn(
-        "sticky top-0 z-50 flex w-full items-center p-6 backdrop-blur-lg backdrop-filter ",
+        "sticky top-0 z-50 flex w-full items-center p-6 backdrop-blur-lg backdrop-filter",
         scrolled && "border-b shadow-sm",
       )}
     >
       <div className="hidden items-center gap-x-2 md:flex">
-        <Icons.logo className="h-12 w-12" />{" "}
+        <Icons.logo className="h-8 w-8" />{" "}
         <span className="font-bold">DenDron</span>
       </div>
       <div className="flex w-full items-center justify-between gap-x-2 md:ml-auto md:justify-end">

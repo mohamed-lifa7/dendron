@@ -6,6 +6,7 @@ import { SignInButton, useUser, UserButton } from "@clerk/clerk-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
+import { Authenticated, Unauthenticated, AuthLoading } from "convex/react";
 import { Icons } from "../icons";
 
 export const Hero = () => {
@@ -24,6 +25,11 @@ export const Hero = () => {
               <div className="-mt-3 h-3 w-full bg-purple-400" />
             </span>
           </h2>
+          <div className="App">
+            <Authenticated>Logged in</Authenticated>
+            <Unauthenticated>Logged out</Unauthenticated>
+            <AuthLoading>Still loading</AuthLoading>
+          </div>
           <p className="mb-6 text-base tracking-wide text-muted-foreground md:text-lg">
             Dendron is your all-in-one knowledge management platform. Store,
             retrieve, and share your notes effortlessly.
