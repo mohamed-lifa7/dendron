@@ -6,6 +6,7 @@ import { useDropzone, type DropzoneOptions } from "react-dropzone";
 import { twMerge } from "tailwind-merge";
 
 import { Spinner } from "./ui/spinner";
+import Image from "next/image";
 
 const variants = {
   base: "relative rounded-md flex justify-center items-center flex-col cursor-pointer min-h-[150px] min-w-[200px] border border-dashed border-gray-400 dark:border-gray-300 transition-colors duration-200 ease-in-out",
@@ -104,7 +105,8 @@ const SingleImageDropzone = React.forwardRef<HTMLInputElement, InputProps>(
       ],
     );
 
-    const validationMessage = () => {
+    // error validation messages
+    const errorMessage = React.useMemo(() => {
       if (fileRejections[0]) {
         const { errors } = fileRejections[0];
         if (errors[0]?.code === "file-too-large") {
@@ -113,17 +115,11 @@ const SingleImageDropzone = React.forwardRef<HTMLInputElement, InputProps>(
           return ERROR_MESSAGES.fileInvalidType();
         } else if (errors[0]?.code === "too-many-files") {
           return ERROR_MESSAGES.tooManyFiles(dropzoneOptions?.maxFiles ?? 0);
-        } else {
-          return ERROR_MESSAGES.fileNotSupported();
         }
+        return ERROR_MESSAGES.fileNotSupported();
       }
-      return undefined;
-    };
-    // error validation messages
-    const errorMessage = React.useMemo(validationMessage, [
-      fileRejections,
-      dropzoneOptions,
-    ]);
+      return ERROR_MESSAGES.fileNotSupported(); // Return a default value
+    }, [fileRejections, dropzoneOptions]);
 
     return (
       <div className="relative">
@@ -146,10 +142,10 @@ const SingleImageDropzone = React.forwardRef<HTMLInputElement, InputProps>(
 
           {imageUrl ? (
             // Image Preview
-            <img
+            <Image
               className="h-full w-full rounded-md object-cover"
               src={imageUrl}
-              alt={acceptedFiles[0]?.name}
+              alt={acceptedFiles[0]?.name ?? ""}
             />
           ) : (
             // Upload Icon

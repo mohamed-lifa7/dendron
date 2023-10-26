@@ -8,7 +8,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -52,7 +51,7 @@ export const UserItem = () => {
             </div>
             <div className="space-y-1">
               <p className="line-clamp-1 text-sm">
-                {user?.fullName}&apos;s Jotion
+                {user?.fullName}&apos;s account
               </p>
             </div>
           </div>

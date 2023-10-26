@@ -125,7 +125,7 @@ export const Item = ({
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent
-              className="w-60"
+              className="z-[99999] w-60"
               align="start"
               side="right"
               forceMount
