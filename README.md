@@ -119,8 +119,6 @@ npm run lint
 
 If you have any questions or need further assistance, you can reach out to us through the contact section within the app or by creating an issue on GitHub.
 
-Thank you for contributing to Next Drive! We appreciate your support and look forward to your contributions.
-
 ## License
 
 This project is licensed under MIT. See [LICENSE](LICENSE) for more details.
