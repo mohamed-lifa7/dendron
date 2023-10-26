@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/context/theme-provider";
 import ConvexClientProvider from "@/context/convex-client-provider";
 import { Toaster } from "sonner";
 import { EdgeStoreProvider } from "@/lib/edgestore";
+import { ModalProvider } from "@/context/modal-provider";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
               storageKey="dendron-theme"
             >
               <Toaster position="bottom-center" />
+              <ModalProvider />
               {children}
             </ThemeProvider>
           </EdgeStoreProvider>
