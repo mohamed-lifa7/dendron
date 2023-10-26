@@ -8,13 +8,11 @@ import type { ReactNode } from "react";
 const convex = new ConvexReactClient(env.NEXT_PUBLIC_CONVEX_URL);
 const ConvexClientProvider = ({ children }: { children: ReactNode }) => {
   return (
-    <>
-      <ClerkProvider publishableKey={env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
-        <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
-          {children}
-        </ConvexProviderWithClerk>
-      </ClerkProvider>
-    </>
+    <ClerkProvider publishableKey={env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
+      <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
+        {children}
+      </ConvexProviderWithClerk>
+    </ClerkProvider>
   );
 };
 
